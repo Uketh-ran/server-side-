@@ -61,12 +61,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads"));
 
-// ------------------ MONGODB CONNECTION ------------------
+
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI) // options remove பண்ணுங்க
   .then(() => console.log("MongoDB Connected Globally"))
   .catch(err => console.log("DB Connection Error:", err));
-// ---------------------------------------------------------
+
+
 
 app.use("/api/theme", Wedthemeroutes);
 app.use("/api/Wedrecparty", WedRecPartyroutes);
